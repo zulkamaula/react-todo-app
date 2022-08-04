@@ -7,15 +7,15 @@ function App() {
   const [todoItems, setTodoItems] = React.useState(
     [
       {
-        todo: 'Mow the lawn',
+        todo: 'Mencuci Baju',
         complete: false
       },
       {
-        todo: 'Do Laundry',
+        todo: 'Merapihkan Tempat Tidur',
         complete: false
       },
       {
-        todo: 'Make Dinner',
+        todo: 'Bersiap Untuk Makan',
         complete: false
       }
     ])
@@ -34,8 +34,8 @@ function App() {
   const completeTodoItem = (index) => {
     const newTodoItems = [...todoItems];
     newTodoItems[index].complete === false
-    ? (newTodoItems[index].complete = true)
-    : (newTodoItems[index].complete = false);
+      ? (newTodoItems[index].complete = true)
+      : (newTodoItems[index].complete = false);
     setTodoItems(newTodoItems)
   };
 
@@ -44,9 +44,9 @@ function App() {
     const item = newTodoItems[index];
     let newItem = prompt(`Update ${item.todo}?`, item.todo);
     let todoObj = { todo: newItem, complete: false };
-    
+
     newTodoItems.splice(index, 1, todoObj);
-    
+
     if (newItem === null || newItem === "") {
       return;
     } else {
@@ -60,10 +60,10 @@ function App() {
       <TodoInput createTodoItem={createTodoItem} />
       {
         todoItems.map((item, index) => (
-          <TodoItem 
-            key={index} 
-            index={index} 
-            item={item} 
+          <TodoItem
+            key={index}
+            index={index}
+            item={item}
             deleteTodoItem={deleteTodoItem}
             completeTodoItem={completeTodoItem}
             updateTodoItem={updateTodoItem} />
